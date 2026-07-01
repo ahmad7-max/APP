@@ -4,7 +4,7 @@ import { useAuth } from './AuthContext';
 import { API_BASE_URL } from '../lib/config';
 
 const CTX = createContext(null);
-export const useKeyGate = () => useContext(CTX);
+export const useLethemLegacy = () => useContext(CTX);
 
 const API = API_BASE_URL;
 export const fmtNum = (n) => (n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)}M` : n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n || 0));
@@ -14,7 +14,7 @@ export const quotaColor = (used, limit) => (((used / limit) * 100 > 90) ? 'over'
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const VALID_PAGES = ['overview', 'masterkeys', 'subkeys', 'logs', 'demo', 'health', 'notifications', 'billing', 'analytics', 'members', 'roles', 'invites', 'usage', 'subscription', 'invoices', 'general', 'endpoint', 'security', 'audit', 'danger', 'profile', 'workspace', 'docs'];
 
-export default function KeyGateProvider({ children, projectSlug, page }) {
+export default function LethemLegacyProvider({ children, projectSlug, page }) {
   const { getAccessToken, isAuthenticated, user } = useAuth();
   const [projects, setProjects] = useState([]);
   const [projectName, setProjectName] = useState('');
